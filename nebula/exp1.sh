@@ -9,6 +9,6 @@ do
   for ratio in ${ratios[@]}
   do
     echo "Running $graph with ratio $ratio..."
-    ./build/nebula/nebula_rw --graph_name=$graph --command=test --read_ratio=$ratio >> log/exp1.log 2>&1
+    ./build/nebula/nebula_rw --graph_name=$graph --command=test --read_ratio=$ratio >> log/nebula/exp1.log 2>&1
   done
 done

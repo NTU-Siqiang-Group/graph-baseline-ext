@@ -17,5 +17,5 @@ do
   datapath="${prefix}${paths[$i]}"
   undirect=${undirects[$i]}
   echo "Loading $graph_name..."
-  ./build/nebula/nebula_rw --data_path=$datapath --graph_name=$graph_name --command=load --undirected=$undirect >> log/load.log 2>&1
+  ./build/nebula/nebula_rw --data_path=$datapath --graph_name=$graph_name --command=load --undirected=$undirect >> log/nebula/load.log 2>&1
 done

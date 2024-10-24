@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 int main(int argc, char** argv) {
-  std::fstream file("/home/junfeng/cit-Patents/cit-Patents.e");
+  std::fstream file("$HOME/cit-Patents/cit-Patents.e");
   int fd = open("../data/citpatents", O_WRONLY | O_CREAT);
   int edge_count = 0;
   int c = 1;
