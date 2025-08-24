@@ -2,7 +2,7 @@
 # docker run -v umbra-db:/var/db -p 5432:5432 --ulimit nofile=1048576:1048576 --ulimit memlock=8388608:8388608 umbradb/umbra:latest
 datasets=("wikitalk", "dblp")
 vcounts=(2394385 425876)
-paths=("$HOME/wiki-Talk/wiki-Talk.e", "$HOME/graph-baselines/runtime/data/com-dblp.ungraph.json3")
+paths=("../graph-baselines/runtime/data/wikitalk.json3", "../graph-baselines/runtime/data/com-dblp.ungraph.json3")
 
 for i in 0 1
 do

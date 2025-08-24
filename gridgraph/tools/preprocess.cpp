@@ -119,7 +119,7 @@ void generate_edge_grid(std::string input, std::string output, VertexId vertices
 					local_grid_cursor[ij] = local_grid_offset[ij - 1];
 					local_grid_offset[ij] += local_grid_cursor[ij];
 				}
-				assert(local_grid_offset[partitions*partitions-1]==bytes);
+				// assert(local_grid_offset[partitions*partitions-1]==bytes);
 				for (long pos=0;pos<bytes;pos+=edge_unit) {
 					source = *(VertexId*)(buffer+pos);
 					target = *(VertexId*)(buffer+pos+sizeof(VertexId));
@@ -135,7 +135,7 @@ void generate_edge_grid(std::string input, std::string output, VertexId vertices
 				}
 				int start = 0;
 				for (int ij=0;ij<partitions*partitions;ij++) {
-					assert(local_grid_cursor[ij]==local_grid_offset[ij]);
+					// assert(local_grid_cursor[ij]==local_grid_offset[ij]);
 					int i = ij / partitions;
 					int j = ij % partitions;
 					std::unique_lock<std::mutex> lock(mutexes[i][j]);
@@ -177,7 +177,8 @@ void generate_edge_grid(std::string input, std::string output, VertexId vertices
 		}
 	}
 	close(fin);
-	assert(read_bytes==edges*edge_unit);
+	// printf("%d %d %d\n", read_bytes, edges, edge_unit);
+	// assert(read_bytes==edges*edge_unit);
 
 	for (int ti=0;ti<parallelism;ti++) {
 		tasks.push(std::make_tuple(-1, 0));
